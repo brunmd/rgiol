@@ -17,7 +17,7 @@
   --gradient-glow:linear-gradient(135deg,rgba(78,168,176,0.12) 0%,rgba(61,123,158,0.04) 100%);
 }
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'DM Sans',sans-serif;background:var(--bg-deep);color:var(--text-primary);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;background:var(--bg-deep);color:var(--text-primary);overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background 0.5s cubic-bezier(0.25,1,0.5,1),color 0.4s ease}
 #particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg-deep)}::-webkit-scrollbar-thumb{background:var(--galaxy-teal);border-radius:3px}
 
@@ -53,6 +53,7 @@ section{position:relative;z-index:1;padding:110px 0}
 .sec-title{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4.2vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:18px}
 .sec-title .hl{background:var(--gradient-hot);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .sec-desc{font-size:1rem;line-height:1.75;color:var(--text-secondary);max-width:540px}
+section,div,.acc-item,.inno-card,.evi-card,.vision-card,.pub-card,.inventor-toggle,.inventor-body,.const-table-wrap,.hero-metric{transition-property:background,border-color,box-shadow,transform,color;transition-duration:0.4s}
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;transition:background 0.5s cubic-bezier(0.25,1,0.5,1),border-color 0.5s cubic-bezier(0.25,1,0.5,1);will-change:background}
@@ -258,6 +259,49 @@ section{position:relative;z-index:1;padding:110px 0}
 .footer-refs-title{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--galaxy-cyan);margin-bottom:12px}
 .footer-refs ol{padding-left:18px}.footer-refs li{font-size:0.65rem;color:var(--text-muted);margin-bottom:3px;line-height:1.5}
 
+/* LIGHT THEME */
+[data-theme="light"]{
+  --bg-deep:#FAFCFE;--bg-card:#FFFFFF;--bg-surface:#F0F4F8;--border-subtle:rgba(0,90,140,0.1);--border-active:rgba(0,90,140,0.25);
+  --galaxy-teal:#0077A8;--galaxy-cyan:#0097C7;--galaxy-light:#00AEDE;--galaxy-blue:#005B8E;--galaxy-deep:#003F63;--galaxy-silver:#4A6A7A;
+  --glow-primary:rgba(0,119,168,0.2);--text-primary:#0A1628;--text-secondary:rgba(10,22,40,0.6);--text-muted:rgba(10,22,40,0.35);
+  --gradient-brand:linear-gradient(135deg,#005B8E 0%,#0077A8 40%,#0097C7 100%);
+  --gradient-hot:linear-gradient(135deg,#0077A8 0%,#0097C7 50%,#00AEDE 100%);
+  --gradient-glow:linear-gradient(135deg,rgba(0,119,168,0.08) 0%,rgba(0,91,142,0.02) 100%);
+}
+[data-theme="light"] .nav{background:rgba(250,252,254,0.9)}
+[data-theme="light"] .nav.scrolled{background:rgba(250,252,254,0.95);border-bottom:1px solid rgba(0,90,140,0.06)}
+[data-theme="light"] .galaxy-center-text h2{color:rgba(10,22,40,0.88);text-shadow:0 2px 8px rgba(255,255,255,0.8),0 0 60px rgba(0,119,168,0.15)}
+[data-theme="light"] .galaxy-center-text p{color:var(--galaxy-silver)}
+[data-theme="light"] .quote-section{background:linear-gradient(180deg,rgba(0,119,168,0.03) 0%,var(--bg-deep) 100%)}
+[data-theme="light"] .numbers{background:linear-gradient(180deg,rgba(0,119,168,0.02) 0%,var(--bg-deep) 100%)}
+[data-theme="light"] .innovation{background:linear-gradient(180deg,var(--bg-deep) 0%,#F0F4F8 100%)}
+[data-theme="light"] .vision{background:linear-gradient(180deg,var(--bg-deep) 0%,#F0F4F8 100%)}
+[data-theme="light"] .specs{background:linear-gradient(180deg,var(--bg-deep) 0%,#F0F4F8 100%)}
+[data-theme="light"] .constants{background:linear-gradient(180deg,#F0F4F8 0%,var(--bg-deep) 100%)}
+[data-theme="light"] .cta{background:linear-gradient(180deg,rgba(0,119,168,0.03) 0%,var(--bg-deep) 100%)}
+[data-theme="light"] .acc-hdr:hover{background:rgba(0,119,168,0.03)}
+[data-theme="light"] .inno-card:hover{box-shadow:0 20px 50px rgba(0,0,0,0.08)}
+[data-theme="light"] .evi-card:hover{box-shadow:0 14px 44px rgba(0,90,140,0.08)}
+[data-theme="light"] .vision-card:hover{box-shadow:0 16px 44px rgba(0,0,0,0.06)}
+[data-theme="light"] .hero::before{background:radial-gradient(circle,rgba(0,119,168,0.04) 0%,transparent 60%)}
+[data-theme="light"] .pub-conclusion{color:var(--galaxy-blue)}
+
+/* NAV TOGGLES */
+.nav-controls{display:flex;align-items:center;gap:10px}
+.lang-toggle{display:flex;align-items:center;gap:0;border-radius:100px;overflow:hidden;border:1px solid var(--border-subtle);background:var(--bg-card);cursor:pointer;height:30px;transition:border-color 0.25s ease}
+.lang-toggle:hover{border-color:var(--border-active)}
+.lang-btn{padding:5px 10px;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;color:var(--text-muted);background:transparent;border:none;cursor:pointer;transition:color 0.2s ease,background 0.25s ease;font-family:'DM Sans',sans-serif;line-height:1}
+.lang-btn.active{color:white;background:var(--galaxy-teal)}
+[data-theme="light"] .lang-btn.active{color:white;background:var(--galaxy-blue)}
+.theme-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--border-subtle);background:var(--bg-card);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.25s ease,transform 0.35s cubic-bezier(0.32,0.72,0,1);padding:0}
+.theme-btn:hover{border-color:var(--border-active);transform:scale(1.08)}
+.theme-btn:active{transform:scale(0.94);transition-duration:0.1s}
+.theme-btn svg{width:15px;height:15px;stroke:var(--galaxy-cyan);fill:none;stroke-width:1.5;transition:transform 0.4s cubic-bezier(0.32,0.72,0,1)}
+.theme-btn:hover svg{transform:rotate(20deg)}
+.theme-icon-moon{display:none}
+[data-theme="light"] .theme-icon-moon{display:block}
+[data-theme="light"] .theme-icon-sun{display:none}
+
 /* RESPONSIVE */
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;text-align:center;gap:40px}
@@ -273,6 +317,7 @@ section{position:relative;z-index:1;padding:110px 0}
 @media(max-width:768px){
   section{padding:80px 0}
   .nav-links{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(7,14,23,0.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;backdrop-filter:blur(20px);z-index:99}
+  [data-theme="light"] .nav-links{background:rgba(250,252,254,0.97)}
   .nav-links.open{display:flex;animation:fadeUp 0.45s cubic-bezier(0.32,0.72,0,1)}.nav-links a{font-size:1.1rem}
   .nav-toggle{display:block}
   .hero{min-height:auto;padding:100px 0 50px}
@@ -297,27 +342,37 @@ section{position:relative;z-index:1;padding:110px 0}
     </div>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#innovation">Tecnologia</a></li>
-    <li><a href="#evidence">Evidências</a></li>
-    <li><a href="#vision">Faixa de Visão</a></li>
-    <li><a href="#inventor">Co-inventor</a></li>
-    <li><a href="#specs">Especificações</a></li>
-    <li><a href="#constants">Constantes</a></li>
-    <li><a href="#pubs">Publicações</a></li>
+    <li><a href="#innovation" data-i18n="nav_tech">Tecnologia</a></li>
+    <li><a href="#evidence" data-i18n="nav_evi">Evidências</a></li>
+    <li><a href="#vision" data-i18n="nav_vision">Faixa de Visão</a></li>
+    <li><a href="#inventor" data-i18n="nav_inv">Co-inventor</a></li>
+    <li><a href="#specs" data-i18n="nav_specs">Especificações</a></li>
+    <li><a href="#constants" data-i18n="nav_const">Constantes</a></li>
+    <li><a href="#pubs" data-i18n="nav_pubs">Publicações</a></li>
   </ul>
+  <div class="nav-controls">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Alternar tema">
+      <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
   <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </div></nav>
 
 <!-- HERO -->
 <section class="hero"><div class="container"><div class="hero-inner">
   <div class="hero-text">
-    <div class="hero-chip"><span class="hero-chip-dot"></span><span>Primeira LIO espiral do mundo</span></div>
-    <h1>Visão completa.<br><span class="hl">Menos Halos & Glares.</span></h1>
-    <p class="hero-sub">A RayOne Galaxy é a primeira lente intraocular com óptica espiral refrativa, projetada por inteligência artificial para proporcionar visão completa com disfotopsia minimizada.</p>
+    <div class="hero-chip"><span class="hero-chip-dot"></span><span data-i18n="hero_chip">Primeira LIO espiral do mundo</span></div>
+    <h1 data-i18n="hero_h1a">Visão completa.<br><span class="hl" data-i18n="hero_h1b">Menos Halos & Glares.</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">A RayOne Galaxy é a primeira lente intraocular com óptica espiral refrativa, projetada por inteligência artificial para proporcionar visão completa com disfotopsia minimizada.</p>
     <div class="hero-metrics">
-      <div class="hero-metric"><div class="metric-val">0%</div><div class="metric-label">Perda de luz</div></div>
-      <div class="hero-metric"><div class="metric-val">35cm</div><div class="metric-label">Visão de perto</div></div>
-      <div class="hero-metric"><div class="metric-val">95,4%</div><div class="metric-label">Sem halos relevantes</div></div>
+      <div class="hero-metric"><div class="metric-val">0%</div><div class="metric-label" data-i18n="hero_m1">Perda de luz</div></div>
+      <div class="hero-metric"><div class="metric-val">35cm</div><div class="metric-label" data-i18n="hero_m2">Visão de perto</div></div>
+      <div class="hero-metric"><div class="metric-val">95,4%</div><div class="metric-label" data-i18n="hero_m3">Sem halos relevantes</div></div>
     </div>
   </div>
   <div class="hero-visual">
@@ -334,22 +389,22 @@ section{position:relative;z-index:1;padding:110px 0}
 <!-- NUMBERS BAR -->
 <section class="numbers"><div class="container">
   <div class="numbers-conclusion reveal" style="text-align:center;max-width:700px;margin:0 auto 36px;font-size:0.88rem;line-height:1.7;color:var(--text-secondary)">
-    <span style="color:var(--galaxy-cyan);font-weight:600">Excelente acuidade visual em todas as distâncias</span> (longe, intermediário e perto) &nbsp;|&nbsp;
-    <span style="color:var(--galaxy-cyan);font-weight:600">Perfil contínuo de foco</span> (defocus curve suave, sem gaps entre distâncias) &nbsp;|&nbsp;
-    <span style="color:var(--galaxy-cyan);font-weight:600">Menor incidência de fenômenos fóticos</span> em comparação com lentes trifocais difrativas
+    <span style="color:var(--galaxy-cyan);font-weight:600" data-i18n="num_c1">Excelente acuidade visual em todas as distâncias</span> (longe, intermediário e perto) &nbsp;|&nbsp;
+    <span style="color:var(--galaxy-cyan);font-weight:600" data-i18n="num_c2">Perfil contínuo de foco</span> (defocus curve suave, sem gaps entre distâncias) &nbsp;|&nbsp;
+    <span style="color:var(--galaxy-cyan);font-weight:600" data-i18n="num_c3">Menor incidência de fenômenos fóticos</span> em comparação com lentes trifocais difrativas
   </div>
   <div class="numbers-grid">
-    <div class="num-item reveal"><div class="num-val" data-target="146">0</div><div class="num-lbl">Olhos avaliados</div></div>
-    <div class="num-item reveal d1"><div class="num-val" data-target="73">0</div><div class="num-lbl">Pacientes</div></div>
-    <div class="num-item reveal d2"><div class="num-val" data-target="10">0</div><div class="num-lbl">Centros na Europa, Turquia e Nova Zelândia</div></div>
-    <div class="num-item reveal d3"><div class="num-val" data-target="100">0</div><div class="num-lbl">% sem glare relevante</div></div>
+    <div class="num-item reveal"><div class="num-val" data-target="146">0</div><div class="num-lbl" data-i18n="num_l1">Olhos avaliados</div></div>
+    <div class="num-item reveal d1"><div class="num-val" data-target="73">0</div><div class="num-lbl" data-i18n="num_l2">Pacientes</div></div>
+    <div class="num-item reveal d2"><div class="num-val" data-target="10">0</div><div class="num-lbl" data-i18n="num_l3">Centros na Europa, Turquia e Nova Zelândia</div></div>
+    <div class="num-item reveal d3"><div class="num-val" data-target="100">0</div><div class="num-lbl" data-i18n="num_l4">% sem glare relevante</div></div>
   </div>
   <div style="text-align:center"><p class="numbers-ref reveal" style="margin-top:28px;padding:14px 20px;border:1px solid var(--border-subtle);border-radius:10px;background:rgba(78,168,176,0.02);display:inline-block">Dados do estudo clínico multicêntrico pós-mercado. Abela-Formanek C et al. <span style="color:var(--galaxy-cyan)">J Refract Surg. 2025;41(11):e1213.</span></p></div>
 </div></section>
 
 <!-- INNOVATION -->
 <section class="innovation" id="innovation"><div class="container">
-  <div class="sec-tag reveal">Tecnologia</div>
+  <div class="sec-tag reveal" data-i18n="tag_tech">Tecnologia</div>
   <h2 class="sec-title reveal">Projetada com IA.<br><span class="hl">Uma nova era em óptica.</span></h2>
   <p class="sec-desc reveal" style="margin-bottom:48px">A Galaxy IOL utiliza trilhas espirais refrativas contínuas, modeladas por machine learning proprietário que avaliou milhões de iterações de design para otimizar acuidade visual e minimizar disfotopsia.</p>
   <div class="inno-grid">
@@ -387,7 +442,7 @@ section{position:relative;z-index:1;padding:110px 0}
 
 <!-- EVIDENCE -->
 <section class="evidence" id="evidence"><div class="container">
-  <div class="sec-tag reveal">Evidências clínicas</div>
+  <div class="sec-tag reveal" data-i18n="tag_evi">Evidências clínicas</div>
   <h2 class="sec-title reveal">Resultados que<br><span class="hl">falam por si.</span></h2>
   <p class="sec-desc reveal" style="margin-bottom:40px">Dados de avaliação pre-clínica com simulador RALV e estudo clínico multicentrico com 73 pacientes confirmam o desempenho superior da Galaxy.</p>
   <div class="evi-grid">
@@ -449,8 +504,8 @@ section{position:relative;z-index:1;padding:110px 0}
 
 <!-- VISION RANGE -->
 <section class="vision" id="vision"><div class="container">
-  <div class="sec-tag reveal">Faixa de visão</div>
-  <h2 class="sec-title reveal">Visão completa.<br><span class="hl">Do longe ao perto.</span></h2>
+  <div class="sec-tag reveal" data-i18n="tag_vision">Faixa de visão</div>
+  <h2 class="sec-title reveal" data-i18n="hero_h1a">Visão completa.<br><span class="hl">Do longe ao perto.</span></h2>
   <p class="sec-desc reveal" style="margin-bottom:40px">Após a cirurgia com a RayOne Galaxy, seus pacientes podem desfrutar de uma visão contínua e natural em todas as distâncias do dia a dia.</p>
   <div class="vision-grid">
     <div class="vision-card reveal">
@@ -473,7 +528,7 @@ section{position:relative;z-index:1;padding:110px 0}
 
 <!-- CO-INVENTOR COLLAPSIBLE -->
 <section class="inventor" id="inventor"><div class="container">
-  <div class="sec-tag reveal">Co-inventor</div>
+  <div class="sec-tag reveal" data-i18n="tag_inv">Co-inventor</div>
   <h2 class="sec-title reveal" style="margin-bottom:36px">A mente por trás<br><span class="hl">da revolução espiral.</span></h2>
   <div class="reveal">
     <div class="inventor-toggle" id="inventorToggle" onclick="toggleInventor()">
@@ -501,7 +556,7 @@ section{position:relative;z-index:1;padding:110px 0}
 
 <!-- SPECS ACCORDION -->
 <section class="specs" id="specs"><div class="container">
-  <div class="sec-tag reveal">Especificações</div>
+  <div class="sec-tag reveal" data-i18n="tag_specs">Especificações</div>
   <h2 class="sec-title reveal" style="margin-bottom:36px">Ficha técnica<br><span class="hl">completa.</span></h2>
   <div class="acc" id="specAccordion">
     <div class="acc-item" data-acc="spec">
@@ -561,7 +616,7 @@ section{position:relative;z-index:1;padding:110px 0}
 
 <!-- CONSTANTS TABLE -->
 <section class="constants" id="constants"><div class="container">
-  <div class="sec-tag reveal">Constantes</div>
+  <div class="sec-tag reveal" data-i18n="tag_const">Constantes</div>
   <h2 class="sec-title reveal" style="margin-bottom:36px">Constantes estimadas<br><span class="hl">para biometria óptica.</span></h2>
   <div class="const-table-wrap reveal">
     <table class="const-table">
@@ -592,7 +647,7 @@ section{position:relative;z-index:1;padding:110px 0}
 
 <!-- PUBLICATIONS -->
 <section class="pubs" id="pubs"><div class="container">
-  <div class="sec-tag reveal">Publicações</div>
+  <div class="sec-tag reveal" data-i18n="tag_pubs">Publicações</div>
   <h2 class="sec-title reveal">Base científica<br><span class="hl">robusta.</span></h2>
 
   <div class="pub-cards-wrap" style="margin-top:28px">
@@ -617,7 +672,7 @@ section{position:relative;z-index:1;padding:110px 0}
 <section class="cta"><div class="container">
   <h2 class="sec-title reveal">Pronto para oferecer<br><span class="hl">visão sem compromisso?</span></h2>
   <p class="reveal">Conheça a RayOne Galaxy e descubra como a primeira LIO espiral do mundo pode transformar os resultados dos seus pacientes.</p>
-  <a href="https://rayner.com/br-pt/galaxy/" target="_blank" class="cta-btn reveal">Saiba mais em rayner.com</a>
+  <a href="https://rayner.com/br-pt/galaxy/" target="_blank" class="cta-btn reveal" data-i18n="cta_btn">Saiba mais em rayner.com</a>
 </div></section>
 
 <!-- FOOTER -->
@@ -646,6 +701,7 @@ const gctx=gc.getContext('2d');
 function resizeGalaxy(){const w=gc.parentElement.offsetWidth;gc.width=w;gc.height=w}
 resizeGalaxy();window.addEventListener('resize',resizeGalaxy);
 
+let isDark=true;
 let gAngle=0;
 function drawGalaxy(){
   const w=gc.width,h=gc.height,cx=w/2,cy=h/2;
@@ -664,8 +720,10 @@ function drawGalaxy(){
       if(dist>1)continue;
       const alpha=Math.max(0,(1-dist)*0.6*(0.5+Math.random()*0.5));
       const size=Math.max(0.3,(1-dist)*2);
-      // silver-white color
-      const brightness=180+Math.floor(Math.random()*75);
+      // Adapt colors to theme
+      let brightness;
+      if(isDark){brightness=180+Math.floor(Math.random()*75)}
+      else{brightness=40+Math.floor(Math.random()*80)}
       gctx.beginPath();
       gctx.arc(x,y,size,0,Math.PI*2);
       gctx.fillStyle=`rgba(${brightness},${brightness+15},${brightness+25},${alpha})`;
@@ -674,9 +732,8 @@ function drawGalaxy(){
   }
   // core glow
   const coreGrad=gctx.createRadialGradient(cx,cy,0,cx,cy,50);
-  coreGrad.addColorStop(0,'rgba(192,214,224,0.15)');
-  coreGrad.addColorStop(0.5,'rgba(78,168,176,0.05)');
-  coreGrad.addColorStop(1,'rgba(78,168,176,0)');
+  if(isDark){coreGrad.addColorStop(0,'rgba(192,214,224,0.15)');coreGrad.addColorStop(0.5,'rgba(78,168,176,0.05)');coreGrad.addColorStop(1,'rgba(78,168,176,0)')}
+  else{coreGrad.addColorStop(0,'rgba(0,119,168,0.1)');coreGrad.addColorStop(0.5,'rgba(0,91,142,0.03)');coreGrad.addColorStop(1,'rgba(0,91,142,0)')}
   gctx.fillStyle=coreGrad;
   gctx.fillRect(0,0,w,h);
   // scattered stars
@@ -684,7 +741,7 @@ function drawGalaxy(){
     const sx=Math.random()*w,sy=Math.random()*h;
     const sa=Math.random()*0.15+0.05;
     gctx.beginPath();gctx.arc(sx,sy,Math.random()*1+0.3,0,Math.PI*2);
-    gctx.fillStyle=`rgba(200,220,235,${sa})`;gctx.fill();
+    gctx.fillStyle=isDark?`rgba(200,220,235,${sa})`:`rgba(0,60,100,${sa*0.6})`;gctx.fill();
   }
   requestAnimationFrame(drawGalaxy);
 }
@@ -731,7 +788,7 @@ function animateParticles(){
   for(let i=0;i<particles.length;i++){
     for(let j=i+1;j<particles.length;j++){
       const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
-      if(dist<110){const alpha=0.025*(1-dist/110)*Math.min(particles[i].opacity,particles[j].opacity)*4;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(210,225,235,${alpha})`;ctx.stroke()}
+      if(dist<110){const alpha=0.025*(1-dist/110)*Math.min(particles[i].opacity,particles[j].opacity)*4;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=isDark?`rgba(210,225,235,${alpha})`:`rgba(0,60,100,${alpha*0.7})`;ctx.stroke()}
     }
   }
   requestAnimationFrame(animateParticles);
@@ -772,6 +829,70 @@ function toggleInventor(){
   const body=document.getElementById('inventorBody');
   toggle.classList.toggle('open');
   body.classList.toggle('open');
+}
+
+// THEME TOGGLE
+function toggleTheme(){
+  isDark=!isDark;
+  document.documentElement.setAttribute('data-theme',isDark?'':'light');
+  // Update particle/galaxy colors for light mode
+  particles.forEach(p=>{
+    if(!isDark){const t=40+Math.floor(Math.random()*60);p.r=t;p.g=t+10;p.b=t+30}
+    else{const t=210+Math.floor(Math.random()*45);p.r=t;p.g=t+5;p.b=t+15}
+  });
+}
+
+// LANGUAGE TOGGLE
+let currentLang='pt';
+const i18n={
+  pt:{
+    nav_tech:'Tecnologia',nav_evi:'Evidências',nav_vision:'Faixa de Visão',nav_inv:'Co-inventor',
+    nav_specs:'Especificações',nav_const:'Constantes',nav_pubs:'Publicações',
+    hero_chip:'Primeira LIO espiral do mundo',
+    hero_h1a:'Visão completa.<br>',hero_h1b:'Menos Halos & Glares.',
+    hero_sub:'A RayOne Galaxy é a primeira lente intraocular com óptica espiral refrativa, projetada por inteligência artificial para proporcionar visão completa com disfotopsia minimizada.',
+    hero_m1:'Perda de luz',hero_m2:'Visão de perto',hero_m3:'Sem halos relevantes',
+    num_c1:'Excelente acuidade visual em todas as distâncias',
+    num_c1b:' (longe, intermediário e perto)',
+    num_c2:'Perfil contínuo de foco',
+    num_c2b:' (defocus curve suave, sem gaps entre distâncias)',
+    num_c3:'Menor incidência de fenômenos fóticos',
+    num_l1:'Olhos avaliados',num_l2:'Pacientes',
+    num_l3:'Centros na Europa, Turquia e Nova Zelândia',num_l4:'% sem glare relevante',
+    tag_tech:'Tecnologia',tag_evi:'Evidências clínicas',tag_vision:'Faixa de visão',
+    tag_inv:'Co-inventor',tag_specs:'Especificações',tag_const:'Constantes',tag_pubs:'Publicações',
+    cta_btn:'Saiba mais em rayner.com'
+  },
+  en:{
+    nav_tech:'Technology',nav_evi:'Evidence',nav_vision:'Range of Vision',nav_inv:'Co-inventor',
+    nav_specs:'Specifications',nav_const:'Constants',nav_pubs:'Publications',
+    hero_chip:'World\'s first spiral IOL',
+    hero_h1a:'Full vision.<br>',hero_h1b:'Less Halos & Glare.',
+    hero_sub:'RayOne Galaxy is the world\'s first intraocular lens with refractive spiral optics, designed by artificial intelligence to provide full range of vision with minimized dysphotopsia.',
+    hero_m1:'Light loss',hero_m2:'Near vision',hero_m3:'No relevant halos',
+    num_c1:'Excellent visual acuity at all distances',
+    num_c1b:' (distance, intermediate and near)',
+    num_c2:'Continuous focus profile',
+    num_c2b:' (smooth defocus curve, no gaps between distances)',
+    num_c3:'Lower incidence of photic phenomena',
+    num_l1:'Eyes evaluated',num_l2:'Patients',
+    num_l3:'Centres across Europe, Turkey and New Zealand',num_l4:'% no relevant glare',
+    tag_tech:'Technology',tag_evi:'Clinical evidence',tag_vision:'Range of vision',
+    tag_inv:'Co-inventor',tag_specs:'Specifications',tag_const:'Constants',tag_pubs:'Publications',
+    cta_btn:'Learn more at rayner.com'
+  }
+};
+
+function setLang(lang){
+  currentLang=lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>{b.classList.toggle('active',b.dataset.lang===lang)});
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(i18n[lang][key]){
+      if(key==='hero_h1a')el.innerHTML=i18n[lang][key];
+      else el.textContent=i18n[lang][key];
+    }
+  });
 }
 </script>
 </body>
